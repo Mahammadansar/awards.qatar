@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Icons from Logo - AwardsQatar</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #D4AF37;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .logo-preview {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+        .logo-preview img {
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .icon-item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        .icon-item:hover {
+            border-color: #D4AF37;
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+        }
+        .icon-item canvas {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background: white;
+        }
+        .icon-item label {
+            display: block;
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        button {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8941F 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .status {
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: none;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .instructions {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #007bff;
+            margin-bottom: 30px;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        .instructions ol {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Generate App Icons</h1>
+        <p class="subtitle">Create all required PWA icons from your existing logo</p>
+        
+        <div class="instructions">
+            <h3>📋 Instructions:</h3>
+            <ol>
+                <li>The script will automatically load your logo (<code>awars-logo.png</code>)</li>
+                <li>Icons will be generated in all required sizes</li>
+                <li>Click "Download All Icons" to download the complete icon set</li>
+                <li>Extract the zip file and place the <code>icons</code> folder in your project root</li>
+            </ol>
+        </div>
+
+        <div class="logo-preview">
+            <h3>Your Logo:</h3>
+            <img id="logoPreview" src="awars-logo.png" alt="AwardsQatar Logo" onerror="handleLogoError()">
+        </div>
+
+        <div id="status" class="status"></div>
+        
+        <div id="iconGrid" class="icon-grid"></div>
+        
+        <button id="downloadBtn" disabled>Download All Icons</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script>
+        const sizes = [72, 96, 128, 144, 152, 192, 384, 512];
+        const iconGrid = document.getElementById('iconGrid');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const status = document.getElementById('status');
+        let generatedIcons = {};
+        let logoLoaded = false;
+
+        function showStatus(message, type) {
+            status.textContent = message;
+            status.className = `status ${type}`;
+            status.style.display = 'block';
+        }
+
+        function handleLogoError() {
+            showStatus('Logo not found. Please make sure awars-logo.png is in the same directory.', 'error');
+        }
+
+        function generateIcons(img) {
+            iconGrid.innerHTML = '';
+            generatedIcons = {};
+            logoLoaded = true;
+
+            sizes.forEach(size => {
+                const canvas = document.createElement('canvas');
+                canvas.width = size;
+                canvas.height = size;
+                const ctx = canvas.getContext('2d');
+
+                // Draw white background
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, size, size);
+
+                // Calculate dimensions to maintain aspect ratio and add padding
+                const padding = size * 0.1; // 10% padding
+                const maxWidth = size - (padding * 2);
+                const maxHeight = size - (padding * 2);
+                
+                const scale = Math.min(maxWidth / img.width, maxHeight / img.height);
+                const x = (size - img.width * scale) / 2;
+                const y = (size - img.height * scale) / 2;
+                const width = img.width * scale;
+                const height = img.height * scale;
+
+                // Draw image
+                ctx.drawImage(img, x, y, width, height);
+
+                // Create preview item
+                const iconItem = document.createElement('div');
+                iconItem.className = 'icon-item';
+                
+                const previewCanvas = document.createElement('canvas');
+                previewCanvas.width = 100;
+                previewCanvas.height = 100;
+                const previewCtx = previewCanvas.getContext('2d');
+                previewCtx.drawImage(canvas, 0, 0, 100, 100);
+                
+                iconItem.innerHTML = `
+                    ${previewCanvas.outerHTML}
+                    <label>${size}×${size}</label>
+                `;
+                
+                iconGrid.appendChild(iconItem);
+
+                // Store canvas data
+                canvas.toBlob((blob) => {
+                    generatedIcons[`icon-${size}x${size}.png`] = blob;
+                    checkAllIconsReady();
+                }, 'image/png');
+            });
+        }
+
+        function checkAllIconsReady() {
+            if (Object.keys(generatedIcons).length === sizes.length) {
+                downloadBtn.disabled = false;
+                showStatus('All icons generated! Click download to get the icon set.', 'success');
+            }
+        }
+
+        // Load logo and generate icons
+        const logoImg = document.getElementById('logoPreview');
+        if (logoImg.complete && logoImg.naturalHeight !== 0) {
+            generateIcons(logoImg);
+        } else {
+            logoImg.onload = () => {
+                generateIcons(logoImg);
+            };
+            logoImg.onerror = handleLogoError;
+        }
+
+        // Download handler
+        downloadBtn.addEventListener('click', async () => {
+            if (!logoLoaded) {
+                showStatus('Please wait for icons to generate...', 'error');
+                return;
+            }
+
+            try {
+                downloadBtn.disabled = true;
+                downloadBtn.textContent = 'Generating ZIP...';
+                
+                const zip = new JSZip();
+                const iconsFolder = zip.folder('icons');
+
+                for (const [filename, blob] of Object.entries(generatedIcons)) {
+                    iconsFolder.file(filename, blob);
+                }
+
+                const content = await zip.generateAsync({ type: 'blob' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(content);
+                link.download = 'awardsqatar-icons.zip';
+                link.click();
+                
+                downloadBtn.textContent = 'Download All Icons';
+                downloadBtn.disabled = false;
+                showStatus('Icons downloaded successfully! Extract and place the icons folder in your project root.', 'success');
+            } catch (error) {
+                showStatus('Error generating icons: ' + error.message, 'error');
+                downloadBtn.textContent = 'Download All Icons';
+                downloadBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
+

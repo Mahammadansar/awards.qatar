@@ -116,8 +116,8 @@ self.addEventListener('sync', (event) => {
 self.addEventListener('push', (event) => {
   const options = {
     body: event.data ? event.data.text() : 'New update available!',
-    icon: '/icons/icon-192x192.png',
-    badge: '/icons/icon-72x72.png',
+    icon: '/awars-logo.png',
+    badge: '/awars-logo.png',
     vibrate: [200, 100, 200],
     tag: 'awardsqatar-notification',
     data: {
