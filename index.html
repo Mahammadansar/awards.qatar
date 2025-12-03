@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AwardsQatar - Premium Awards & Electronics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="awars-logo.png" alt="AwardsQatar Logo">
+            </a>
+            <div class="nav-search">
+                <input type="text" placeholder="Search for products..." id="searchInput">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="products.html" class="nav-link">Products</a>
+                <a href="cart.html" class="nav-link cart-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                <a href="login.html" class="nav-link"><i class="fas fa-user"></i></a>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to <span class="gradient-text">AwardsQatar</span></h1>
+            <p class="hero-subtitle">Professional Printing Services & Premium Awards</p>
+            <a href="products.html" class="btn-primary">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section class="who-we-are">
+        <div class="container">
+            <h2 class="section-title">Who We Are</h2>
+            <div class="who-we-are-content">
+                <div class="who-we-are-text">
+                    <p class="intro-text">
+                        We specialize in cutting-edge printing solutions, driven by a passion for efficiency and competitiveness. Our comprehensive services include advanced offset printing, digital printing, sublimation printing, UV printing, Direct-to-Film (DTF) printing, and crystal momento printing.
+                    </p>
+                    <p>
+                        To meet the triple demands of affordability, quality, and timely delivery, our pre-press, printing, lamination, and cutting processes are seamlessly integrated into our production line. This streamlined approach enables us to consistently produce exceptional results, exceeding expectations in a demanding market.
+                    </p>
+                    <p>
+                        With years of expertise, our skilled team delivers precision finishing and vibrant outputs. Our state-of-the-art equipment ensures crisp details and durable finishes, making us the go-to partner for businesses seeking high-quality printing solutions.
+                    </p>
+                    <div class="philosophy-box">
+                        <h3>Our Philosophy</h3>
+                        <p>
+                            At Award's, our philosophy is simple yet powerful: outstanding quality, exceptional service, and cutting-edge resources fuel customer satisfaction and loyalty. We believe that performance, quality, and reliability form the foundation of lasting relationships with our valued customers.
+                        </p>
+                    </div>
+                </div>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Offset Printing" onerror="this.style.display='none';">
+                        </div>
+                        <i class="fas fa-print"></i>
+                        <h4>Offset Printing</h4>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Digital Printing" onerror="this.style.display='none';">
+                        </div>
+                        <i class="fas fa-digital-tachograph"></i>
+                        <h4>Digital Printing</h4>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sublimation Printing" onerror="this.style.display='none';">
+                        </div>
+                        <i class="fas fa-palette"></i>
+                        <h4>Sublimation Printing</h4>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="UV Printing" onerror="this.style.display='none';">
+                        </div>
+                        <i class="fas fa-sun"></i>
+                        <h4>UV Printing</h4>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="DTF Printing" onerror="this.style.display='none';">
+                        </div>
+                        <i class="fas fa-film"></i>
+                        <h4>DTF Printing</h4>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Crystal Momento" onerror="this.style.display='none';">
+                        </div>
+                        <i class="fas fa-gem"></i>
+                        <h4>Crystal Momento</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section class="what-we-do">
+        <div class="container">
+            <h2 class="section-title">What We Do</h2>
+            <p class="section-subtitle">Comprehensive Printing & Promotional Solutions</p>
+            <div class="services-list">
+                <div class="service-category">
+                    <h3><i class="fas fa-briefcase"></i> Business Essentials</h3>
+                    <div class="service-items">
+                        <div class="service-tag">Business Card</div>
+                        <div class="service-tag">Letterhead</div>
+                        <div class="service-tag">Flyers</div>
+                        <div class="service-tag">Brochures</div>
+                        <div class="service-tag">Envelope</div>
+                        <div class="service-tag">NCR Vouchers</div>
+                        <div class="service-tag">Name Badges</div>
+                        <div class="service-tag">ID Card Printing</div>
+                        <div class="service-tag">Button Badges</div>
+                        <div class="service-tag">Restaurant Menu</div>
+                        <div class="service-tag">Calendars</div>
+                        <div class="service-tag">Notebook</div>
+                        <div class="service-tag">Label Stickers</div>
+                        <div class="service-tag">Rubber Stamp</div>
+                    </div>
+                </div>
+                <div class="service-category">
+                    <h3><i class="fas fa-gift"></i> Packaging & Gifts</h3>
+                    <div class="service-items">
+                        <div class="service-tag">Packaging Boxes</div>
+                        <div class="service-tag">Gift Boxes</div>
+                        <div class="service-tag">Bag Printing</div>
+                        <div class="service-tag">Plastic Bag Printing</div>
+                        <div class="service-tag">Shopping Bags</div>
+                        <div class="service-tag">Tissue Boxes</div>
+                        <div class="service-tag">Promotional Gift Set</div>
+                        <div class="service-tag">Key Chain</div>
+                    </div>
+                </div>
+                <div class="service-category">
+                    <h3><i class="fas fa-tshirt"></i> Apparel & Textiles</h3>
+                    <div class="service-items">
+                        <div class="service-tag">Screen Printing</div>
+                        <div class="service-tag">Embroidery</div>
+                        <div class="service-tag">DTF</div>
+                        <div class="service-tag">T Shirts</div>
+                        <div class="service-tag">Customized Uniforms</div>
+                        <div class="service-tag">Wrist Band</div>
+                    </div>
+                </div>
+                <div class="service-category">
+                    <h3><i class="fas fa-mug-hot"></i> Promotional Products</h3>
+                    <div class="service-items">
+                        <div class="service-tag">Mug Printing</div>
+                        <div class="service-tag">Pen Printing</div>
+                        <div class="service-tag">Mouse Pad Printing</div>
+                        <div class="service-tag">USB Printing</div>
+                        <div class="service-tag">Lanyard Printing</div>
+                        <div class="service-tag">Stress Ball Printing</div>
+                        <div class="service-tag">Balloon Printing</div>
+                    </div>
+                </div>
+                <div class="service-category">
+                    <h3><i class="fas fa-trophy"></i> Awards & Recognition</h3>
+                    <div class="service-items">
+                        <div class="service-tag">Crystal Awards</div>
+                        <div class="service-tag">Wedding Cards</div>
+                    </div>
+                </div>
+                <div class="service-category">
+                    <h3><i class="fas fa-sign"></i> Signage & Branding</h3>
+                    <div class="service-items">
+                        <div class="service-tag">Banner, Flex Signage</div>
+                        <div class="service-tag">Rollup</div>
+                        <div class="service-tag">Sticker Printing</div>
+                        <div class="service-tag">Acrylic Signs</div>
+                        <div class="service-tag">Name Boards</div>
+                        <div class="service-tag">Industrial Safety Stickers</div>
+                        <div class="service-tag">Acrylic Safety Signs</div>
+                        <div class="service-tag">Vehicle Branding</div>
+                        <div class="service-tag">Flag Printing</div>
+                    </div>
+                </div>
+                <div class="service-category">
+                    <h3><i class="fas fa-tools"></i> Specialized Services</h3>
+                    <div class="service-items">
+                        <div class="service-tag">Laser Engraving Services</div>
+                        <div class="service-tag">Laser Cutting & Acrylic Stands</div>
+                        <div class="service-tag">Digital Print & Sticker</div>
+                        <div class="service-tag">Display Stands</div>
+                        <div class="service-tag">Die Cutting</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card" data-category="printing">
+                    <div class="category-icon">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h3>Printing Services</h3>
+                    <p>Business cards, flyers, brochures</p>
+                </div>
+                <div class="category-card" data-category="awards">
+                    <div class="category-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Awards & Trophies</h3>
+                    <p>Premium recognition awards</p>
+                </div>
+                <div class="category-card" data-category="packaging">
+                    <div class="category-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3>Packaging</h3>
+                    <p>Custom boxes & gift packaging</p>
+                </div>
+                <div class="category-card" data-category="promotional">
+                    <div class="category-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Promotional Products</h3>
+                    <p>Mugs, pens, key chains</p>
+                </div>
+                <div class="category-card" data-category="signage">
+                    <div class="category-icon">
+                        <i class="fas fa-sign"></i>
+                    </div>
+                    <h3>Signage & Banners</h3>
+                    <p>Banners, flex, acrylic signs</p>
+                </div>
+                <div class="category-card" data-category="apparel">
+                    <div class="category-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Apparel Printing</h3>
+                    <p>T-shirts, uniforms, embroidery</p>
+                </div>
+                <div class="category-card" data-category="specialized">
+                    <div class="category-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3>Specialized Services</h3>
+                    <p>Laser engraving, cutting</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery Section -->
+    <section class="image-gallery">
+        <div class="container">
+            <h2 class="section-title">Our Work Gallery</h2>
+            <p class="section-subtitle">Showcasing Excellence in Every Print</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Cards" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display:none;">
+                            <i class="fas fa-id-card"></i>
+                            <span>Business Cards</span>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Business Cards</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Crystal Awards" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display:none;">
+                            <i class="fas fa-trophy"></i>
+                            <span>Crystal Awards</span>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Crystal Awards</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Packaging Boxes" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display:none;">
+                            <i class="fas fa-box"></i>
+                            <span>Packaging</span>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Packaging Boxes</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="T-Shirt Printing" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display:none;">
+                            <i class="fas fa-tshirt"></i>
+                            <span>T-Shirt Printing</span>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>T-Shirt Printing</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Signage & Banners" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display:none;">
+                            <i class="fas fa-sign"></i>
+                            <span>Signage</span>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Signage & Banners</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Promotional Products" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display:none;">
+                            <i class="fas fa-gift"></i>
+                            <span>Promotional</span>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Promotional Products</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="products-grid" id="featuredProducts">
+                <!-- Products will be loaded dynamically -->
+            </div>
+            <div class="view-all">
+                <a href="products.html" class="btn-secondary">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers -->
+    <section class="offers">
+        <div class="container">
+            <div class="offer-banner">
+                <div class="offer-content">
+                    <h2>Special Offer</h2>
+                    <p>Get 20% off on all printing services</p>
+                    <a href="products.html" class="btn-primary">Shop Now</a>
+                </div>
+                <div class="offer-image">
+                    <i class="fas fa-gift"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AwardsQatar</h3>
+                    <p>AwardsQatar services and trading</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +974 3369 9707, 3345 8454</li>
+                        <li><i class="fas fa-envelope"></i> info@awardsqatar.com</li>
+                        <li><i class="fas fa-globe"></i> www.awardsqatar.com</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> AwardsQatar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>
+
