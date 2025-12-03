@@ -1889,3 +1889,244 @@ section {
         height: 200px;
     }
 }
+
+/* ===== PWA STYLES ===== */
+.pwa-install-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    animation: slideUp 0.5s ease;
+}
+
+.pwa-install-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.pwa-install-btn i {
+    font-size: 1rem;
+}
+
+.pwa-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    box-shadow: var(--shadow-lg);
+    z-index: 10000;
+    max-width: 350px;
+    opacity: 0;
+    transform: translateX(400px);
+    transition: all 0.3s ease;
+}
+
+.pwa-notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.pwa-notification-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pwa-notification-content i {
+    font-size: 1.5rem;
+}
+
+.pwa-notification-success {
+    border-left: 4px solid #28a745;
+}
+
+.pwa-notification-success i {
+    color: #28a745;
+}
+
+.pwa-notification-error {
+    border-left: 4px solid #dc3545;
+}
+
+.pwa-notification-error i {
+    color: #dc3545;
+}
+
+.pwa-notification-info {
+    border-left: 4px solid #007bff;
+}
+
+.pwa-notification-info i {
+    color: #007bff;
+}
+
+.pwa-notification-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    margin-left: auto;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.pwa-notification-close:hover {
+    color: var(--text-primary);
+}
+
+.pwa-update-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    box-shadow: var(--shadow-lg);
+    z-index: 10000;
+    max-width: 500px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.3s ease;
+}
+
+.pwa-update-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pwa-update-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.pwa-update-content i {
+    font-size: 1.5rem;
+    animation: spin 2s linear infinite;
+}
+
+.pwa-update-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    margin-left: auto;
+    transition: all 0.3s ease;
+}
+
+.pwa-update-btn:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+.pwa-update-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.pwa-update-close:hover {
+    opacity: 1;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Standalone mode styles */
+.standalone-mode .navbar {
+    padding-top: env(safe-area-inset-top);
+}
+
+.standalone-mode body {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Touch device optimizations */
+.touch-device .product-card:hover,
+.touch-device .category-card:hover {
+    transform: none;
+}
+
+.touch-device button:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+    .pwa-install-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 0.875rem 1.25rem;
+        font-size: 0.85rem;
+    }
+
+    .pwa-notification {
+        top: 15px;
+        right: 15px;
+        left: 15px;
+        max-width: none;
+    }
+
+    .pwa-update-notification {
+        left: 15px;
+        right: 15px;
+    }
+    }
+}
